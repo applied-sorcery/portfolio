@@ -10,8 +10,9 @@ html {
 .img1,
 .img2,
 .img3 {
-  position: relative;
   opacity: 0.7;
+
+  position: relative;
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -60,7 +61,7 @@ html {
 .ptext .border {
   background-color: #111;
   color: white;
-  padding: 20px 60px 20px 60px;
+  padding: 20px 60px;
 }
 
 @media (max-width: 568px) {
@@ -107,6 +108,44 @@ button:focus {
   right: 25%;
 }
 
+.card-container {
+  width: 60%;
+  border: 2px solid red;
+  padding: 10;
+}
+
+.card {
+  /* Add shadows to create the "card" effect */
+  /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s; */
+  float: left;
+  opacity: 1;
+  margin: 40% 1% 1% 1%;
+  width: 20%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+  border-radius: 5px; /* 5px rounded corners */
+  background-color: #333;
+}
+
+.android-img {
+  border-radius: 5px 5px 0 0;
+  opacity: 1;
+}
+
+/* On mouse-over, add a deeper shadow */
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+/* Add some padding inside the card container */
+.container {
+  float: left;
+  text-align: center;
+  width: 100%;
+  background-color: #eee;
+  border-radius: 0px 0px 5px 5px;
+}
 /* .ptext .border.trans {
   background-color: transparent;
 } */

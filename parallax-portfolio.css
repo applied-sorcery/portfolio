@@ -36,6 +36,7 @@ html {
 .section {
   text-align: center;
   padding: 50px 80px;
+  font-size: 18px;
 }
 
 .section-light {
@@ -145,6 +146,19 @@ button:focus {
   width: 100%;
   background-color: #eee;
   border-radius: 0px 0px 10px 10px;
+}
+
+#content {
+  position: absolute;
+  float: left;
+  min-width: 350px;
+  background-color: pink;
+}
+
+a {
+  text-decoration: inherit;
+  color: inherit;
+  text-decoration: underline;
 }
 /* .ptext .border.trans {
   background-color: transparent;

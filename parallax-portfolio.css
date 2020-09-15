@@ -52,6 +52,7 @@ html {
   position: absolute;
   top: 50%;
   width: 100%;
+  position: relative;
   text-align: center;
   color: black;
   font-size: 27px;
@@ -69,9 +70,27 @@ html {
   .img1,
   .img2,
   .img3 {
+    max-width: 100%;
     background-attachment: scroll;
-    position: relative;
     background-position-x: 30%;
+    overflow: hidden;
+    position: static;
+  }
+  .img2 {
+    background-position-x: 62%;
+  }
+
+  .ptext {
+    font-size: 16px;
+    position: relative;
+    margin-top: 75%;
+  }
+  .container {
+    display: none;
+  }
+
+  .card {
+    min-width: 40%;
   }
 }
 
@@ -148,20 +167,10 @@ button:focus {
   border-radius: 0px 0px 10px 10px;
 }
 
-#content {
-  position: absolute;
-  float: left;
-  min-width: 350px;
-  background-color: pink;
-}
-
 a {
   text-decoration: inherit;
   color: inherit;
   text-decoration: underline;
 }
 
-/* .ptext .border.trans {
-  background-color: transparent;
-} */
 /*<span>Photo by <a href="https://unsplash.com/@picsbyjameslee?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">James Lee</a> on <a href="https://unsplash.com/s/photos/wide-owl?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></span>*/

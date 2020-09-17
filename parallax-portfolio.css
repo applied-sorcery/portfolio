@@ -65,6 +65,17 @@ html {
   padding: 20px 60px;
 }
 
+.screenshots-sm {
+  width: 45%;
+  margin: auto;
+  padding-right: 10%;
+}
+
+@media (max-width: 1200px) {
+  .screenshots-sm {
+    display: none;
+  }
+}
 @media (max-width: 568px) {
   .img1,
   .img2,

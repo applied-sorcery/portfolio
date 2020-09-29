@@ -7,7 +7,12 @@
       content="width=device-width, initial-scale = 1.0, maximum-scale=1.0, user-scalable=no"
     />
     <link rel="stylesheet" href="./parallax-portfolio.css" />
-
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+      crossorigin="anonymous"
+    />
     <link
       href="https://fonts.googleapis.com/css2?family=Cabin:wght@400;600&display=swap"
       rel="stylesheet"
@@ -27,7 +32,7 @@
       </div>
     </div>
 
-    <section class="section section-light">
+    <section id="hi" class="section section-light">
       <h2>Greetings</h2>
       <p>
         I'm a junior dev seeking employment and the purpose of this site is to
@@ -70,7 +75,7 @@
         <a href="#a-p">
           <div class="card">
             <img
-              class="android-img"
+              class="android-cimg"
               src="res/img/android.png"
               alt="Android Icon"
               style="width: 100%"
@@ -83,14 +88,13 @@
 
         <a href="#b-p">
           <div class="card">
-            <div class="b-container">
-              <img
-                class="bootstrap-cimg"
-                src="res/img/bootstrap.svg"
-                alt="Bootstrap Icon"
-                style="width: 100%"
-              />
-            </div>
+            <img
+              class="bootstrap-cimg"
+              src="res/img/bootstrap.svg"
+              alt="Bootstrap Icon"
+              style="width: 100%"
+            />
+
             <div class="container">
               <h4><b>(coming soon)</b></h4>
             </div>
@@ -99,10 +103,11 @@
       </div>
     </div>
     <section id="g-p" class="section section-dark">
-      <h2>Godot</h2>
       <div class="screenshots-sm">
         <img id="jetpack-img" src="./res/img/jetpack.png" />
       </div>
+      <div class="my-carousel"></div>
+      <h2>Godot</h2>
       <p>
         This project is an early/ongoing effort and my first attempt to learn
         how to make a 2D platformer in Godot. I found Godot was easy to get
@@ -117,7 +122,7 @@
         page loads.
       </p>
 
-      <div id="topBar">
+      <div>
         <a href="./jetpack/jetpack-game.html" target="_blank" id="load_home">
           Experience The Jetpack
         </a>
@@ -164,7 +169,7 @@
     </section> -->
 
     <section id="r-p" class="section section-light">
-      <h2>React Native</h2>
+      <div class="my-carousel"></div>
       <div class="screenshots">
         <img src="./res/img/trackinit-ss1.png" />
         <img src="./res/img/trackinit-ss2.png" />
@@ -172,6 +177,7 @@
         <img src="./res/img/trackinit-ss5.png" />
         <img src="./res/img/trackinit-ss6.png" />
       </div>
+      <h2>React Native</h2>
       <p>
         This is an app I'm developing using React Native. It's purpose is to
         provide an intuitive, minimalist solution for tracking combat initiative

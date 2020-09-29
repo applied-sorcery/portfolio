@@ -34,7 +34,7 @@ html {
 }
 
 .section {
-  text-align: center;
+  text-align: left;
   padding: 50px 80px;
   font-size: 18px;
 }
@@ -157,11 +157,6 @@ button:focus {
   background-color: #333;
 }
 
-.android-img {
-  border-radius: 10px 10px 0 0;
-  opacity: 1;
-}
-
 /* On mouse-over, add a deeper shadow */
 .card:hover {
   box-shadow: 0 8px 16px 0 rgba(255, 255, 255, 0.2);
@@ -183,12 +178,19 @@ a {
   text-decoration: underline;
 }
 
-.b-container {
-  padding: 20px;
+.card > img {
+  float: left;
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
 }
 
 #jetpack-img {
   width: 100%;
+}
+
+#hi {
+  text-align: center;
 }
 
 /*<span>Photo by <a href="https://unsplash.com/@picsbyjameslee?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">James Lee</a> on <a href="https://unsplash.com/s/photos/wide-owl?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></span>*/

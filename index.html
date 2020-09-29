@@ -104,9 +104,46 @@
     </div>
     <section id="g-p" class="section section-dark">
       <div class="screenshots-sm">
-        <img id="jetpack-img" src="./res/img/jetpack.png" />
+        <div id="jetpack-carousel" class="carousel-slide" data-ride="carousel">
+          <!-- carousel indicators -->
+
+          <!-- slideshow -->
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img id="jetpack-img" src="./res/img/jetpack.png" />
+            </div>
+            <div class="carousel-item">
+              <img src="img2.png" alt="" />
+            </div>
+            <div class="carousel-item-active">
+              <img src="img3.png" alt="" />
+            </div>
+            <ul class="carousel-indicators">
+              <li
+                data-target="#jetpack-carousel"
+                data-slide-to="0"
+                class="active"
+              ></li>
+              <li data-target="#jetpack-carousel" data-slide-to="1"></li>
+              <li data-target="#jetpack-carousel" data-slide-to="2"></li>
+            </ul>
+            <!-- controls -->
+            <a
+              class="carousel-control-prev"
+              href="#jetpack-carousel"
+              data-slide="prev"
+              ><span class="carousel-control-prev-icon"></span> </a
+            ><a
+              class="carousel-control-next"
+              href="#jetpack-carousel"
+              data-slide="next"
+              ><span class="carousel-control-next-icon"></span>
+            </a>
+          </div>
+        </div>
+        <!-- <img id="jetpack-img" src="./res/img/jetpack.png" /> -->
       </div>
-      <div class="my-carousel"></div>
+
       <h2>Godot</h2>
       <p>
         This project is an early/ongoing effort and my first attempt to learn

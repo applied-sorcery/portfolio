@@ -34,7 +34,7 @@ html {
 }
 
 .section {
-  text-align: center;
+  text-align: left;
   padding: 50px 80px;
   font-size: 18px;
 }
@@ -65,8 +65,18 @@ html {
   padding: 20px 60px;
 }
 
-.screenshots-sm {
-  width: 45%;
+#btn {
+  margin-top: 10vh;
+}
+
+.screenshots-v {
+  width: 35%;
+  margin: auto;
+  padding-right: 10%;
+}
+
+.screenshots-h {
+  width: 60%;
   margin: auto;
   padding-right: 10%;
 }
@@ -139,7 +149,10 @@ button:focus {
 }
 
 .card-container {
-  width: 60%;
+  position: absolute;
+  top: 33vh;
+  width: 80vw;
+  height: 50vh;
   padding: 0;
 }
 
@@ -149,7 +162,7 @@ button:focus {
   transition: 0.3s;
   float: left;
   opacity: 1;
-  margin: 40% 3% 1% 3%;
+  margin: 1% 3% 1% 3%;
   width: 15%;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   transition: 0.3s;
@@ -157,22 +170,15 @@ button:focus {
   background-color: #333;
 }
 
-.android-img {
-  border-radius: 10px 10px 0 0;
-  opacity: 1;
-}
-
 /* On mouse-over, add a deeper shadow */
 .card:hover {
   box-shadow: 0 8px 16px 0 rgba(255, 255, 255, 0.2);
-  width: 16.5%;
+  width: 23vw;
 }
 
 /* Add some padding inside the card container */
 .container {
-  float: left;
   text-align: center;
-  width: 100%;
   background-color: #eee;
   border-radius: 0px 0px 10px 10px;
 }
@@ -183,12 +189,25 @@ a {
   text-decoration: underline;
 }
 
-.b-container {
-  padding: 20px;
+.card > img {
+  float: left;
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 10px;
 }
 
 #jetpack-img {
   width: 100%;
+}
+
+#hi {
+  text-align: center;
+}
+
+.carousel-inner img {
+  width: 100%;
+  height: 100%;
 }
 
 /*<span>Photo by <a href="https://unsplash.com/@picsbyjameslee?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">James Lee</a> on <a href="https://unsplash.com/s/photos/wide-owl?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></span>*/

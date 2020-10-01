@@ -35,7 +35,7 @@ html {
 
 .section {
   text-align: left;
-  padding: 5%;
+  padding: 2%;
   font-size: 18px;
 }
 
@@ -97,6 +97,16 @@ html {
 
   .screenshots-h {
     width: 100%;
+  }
+
+  .snippet {
+    flex-direction: column;
+  }
+
+  .snippet-code {
+    width: 90%;
+    margin: 0;
+    padding: 0;
   }
 }
 @media (max-width: 568px) {
@@ -233,24 +243,24 @@ a {
 .snippet {
   display: none;
   flex: 1;
-  flex-direction: row;
+  /* flex-direction: row; */
   align-items: center;
-  justify-content: space-between;
-  padding: 5vh;
+  padding: 0;
+  margin: 0;
 }
 
 .snippet-code {
   flex: 1;
-  background-color: grey;
   font-family: "Courier New", Courier, monospace;
   color: black;
+  font-size: 16px;
 }
 
 .snippet-info {
   flex: 1;
-  padding: 5vh;
   color: black;
   font-size: 25px;
+  margin: 2%;
 }
 
 .section-dark .snippet-info {

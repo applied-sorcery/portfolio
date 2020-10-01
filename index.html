@@ -19,7 +19,12 @@
       href="https://fonts.googleapis.com/css2?family=Cabin:wght@400;600&display=swap"
       rel="stylesheet"
     />
-
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.21.0/themes/prism-coy.min.css"
+      integrity="sha512-CKzEMG9cS0+lcH4wtn/UnxnmxkaTFrviChikDEk1MAWICCSN59sDWIF0Q5oDgdG9lxVrvbENSV1FtjLiBnMx7Q=="
+      crossorigin="anonymous"
+    />
     <title>Tim Auldridge</title>
   </head>
 
@@ -273,35 +278,46 @@
       <h4 class="show-snippet show">
         <a href="" onclick="return false">Code Snippets</a>
       </h4>
-      <div id="g-snip" class="snippet flex-container">
+      <div class="snippet flex-container">
         <div class="snippet-code">
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt
-            corporis, atque at maxime aut et excepturi nobis magnam minima nisi
-            natus nostrum beatae debitis? Porro inventore quam nesciunt facilis
-            excepturi quas labore eius a, maxime minus commodi nam veniam.
-            Laborum corrupti perspiciatis culpa, omnis blanditiis eum quasi
-            beatae quaerat asperiores ea odit itaque, esse ducimus vel
-            distinctio ullam quo earum excepturi rem. Atque quas perferendis
-            eveniet. Ipsum fuga rem quia! Ea maxime officiis mollitia quisquam
-            est ut architecto perferendis esse consequuntur doloribus, at vel
-            ipsam dicta eligendi animi a ipsa veritatis, unde corporis quos
-            ullam incidunt quibusdam. Error, hic minus?
-          </p>
+          <pre>
+  <code class="language-javascript">
+const SearchView = ({navigation}) => {
+  const monsters = useSelector((state) => state.allMonsters);
+  const combatants = useSelector((state) => state.combatants);
+
+  const [searchTerm, setSearchTerm] = useState('');
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    getDataFromApiAsync('http://dnd5eapi.co/api/monsters').then((result) => {
+      dispatch(loadMonsters(result));
+    });
+  }, []);
+
+  async function getDataFromApiAsync(url) {
+    try {
+      let response = await fetch(url);
+      let json = await response.json();
+      // console.log('-->', json.results);
+      return json.results;
+    } catch (error) {
+      console.error(error);
+    }
+  }
+    //...
+}
+  </code>
+</pre>
         </div>
         <div class="snippet-info">
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt
-            corporis, atque at maxime aut et excepturi nobis magnam minima nisi
-            natus nostrum beatae debitis? Porro inventore quam nesciunt facilis
-            excepturi quas labore eius a, maxime minus commodi nam veniam.
-            Laborum corrupti perspiciatis culpa, omnis blanditiis eum quasi
-            beatae quaerat asperiores ea odit itaque, esse ducimus vel
-            distinctio ullam quo earum excepturi rem. Atque quas perferendis
-            eveniet. Ipsum fuga rem quia! Ea maxime officiis mollitia quisquam
-            est ut architecto perferendis esse consequuntur doloribus, at vel
-            ipsam dicta eligendi animi a ipsa veritatis, unde corporis quos
-            ullam incidunt quibusdam. Error, hic minus?
+            One of the more exciting parts of the app, this is where I load the
+            entire monster list from the D&D 5e API and then store it in my
+            application state by firing off a redux action. I do this using the
+            useEffect() hook to load the data right when the view loads. This
+            allows me to use ES6 arrow functions in the app and it's an easy
+            alternative to using ComponentDidMount.
           </p>
         </div>
       </div>
@@ -331,6 +347,12 @@
       integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
       crossorigin="anonymous"
     ></script>
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.min.js"
+      onload="loaded=true;"
+    ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.21.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.21.0/plugins/autoloader/prism-autoloader.min.js"></script>
     <script src="parallax-portfolio.js"></script>
   </body>
 </html>

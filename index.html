@@ -120,12 +120,12 @@
             <div class="carousel-item active">
               <img id="jetpack-img" src="./res/img/jetpack.png" />
             </div>
-            <!-- <div class="carousel-item">
-              <img src="img2.png" alt="" />
+            <div class="carousel-item">
+              <img src="./res/img/jetpack2.png" alt="" />
             </div>
             <div class="carousel-item">
-              <img src="img3.png" alt="" />
-            </div> -->
+              <img src="./res/img/jetpack3.png" alt="" />
+            </div>
 
             <!-- controls -->
             <a
@@ -170,34 +170,44 @@
       </h4>
       <div id="g-snip" class="snippet flex-container">
         <div class="snippet-code">
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt
-            corporis, atque at maxime aut et excepturi nobis magnam minima nisi
-            natus nostrum beatae debitis? Porro inventore quam nesciunt facilis
-            excepturi quas labore eius a, maxime minus commodi nam veniam.
-            Laborum corrupti perspiciatis culpa, omnis blanditiis eum quasi
-            beatae quaerat asperiores ea odit itaque, esse ducimus vel
-            distinctio ullam quo earum excepturi rem. Atque quas perferendis
-            eveniet. Ipsum fuga rem quia! Ea maxime officiis mollitia quisquam
-            est ut architecto perferendis esse consequuntur doloribus, at vel
-            ipsam dicta eligendi animi a ipsa veritatis, unde corporis quos
-            ullam incidunt quibusdam. Error, hic minus?
-          </p>
-        </div>
-        <div class="snippet-info">
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt
-            corporis, atque at maxime aut et excepturi nobis magnam minima nisi
-            natus nostrum beatae debitis? Porro inventore quam nesciunt facilis
-            excepturi quas labore eius a, maxime minus commodi nam veniam.
-            Laborum corrupti perspiciatis culpa, omnis blanditiis eum quasi
-            beatae quaerat asperiores ea odit itaque, esse ducimus vel
-            distinctio ullam quo earum excepturi rem. Atque quas perferendis
-            eveniet. Ipsum fuga rem quia! Ea maxime officiis mollitia quisquam
-            est ut architecto perferendis esse consequuntur doloribus, at vel
-            ipsam dicta eligendi animi a ipsa veritatis, unde corporis quos
-            ullam incidunt quibusdam. Error, hic minus?
-          </p>
+          <div
+            id="snippet-carousel"
+            class="carousel slide"
+            data-ride="carousel"
+          >
+            <!-- carousel indicators -->
+            <ul class="carousel-indicators">
+              <li
+                data-target="#snippet-carousel"
+                data-slide-to="0"
+                class="active"
+              ></li>
+              <li data-target="#snippet-carousel" data-slide-to="1"></li>
+            </ul>
+            <!-- slideshow -->
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <div class="view">
+                  <img src="./res/img/godot-snippet1.png" />
+                  <div class="mask rgba-black-light"></div>
+                </div>
+                <div class="carousel-caption">
+                  <h3 class="h3-responsive"></h3>
+                  <p>1/2</p>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <div class="view">
+                  <img src="./res/img/godot-snippet2.png" />
+                  <div class="mask rgba-black-light"></div>
+                </div>
+                <div class="carousel-caption">
+                  <h3 class="h3-responsive"></h3>
+                  <p>2/2</p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>

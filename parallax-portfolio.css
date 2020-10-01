@@ -236,7 +236,6 @@ a {
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  border: 2px solid blue;
   padding: 5vh;
 }
 
@@ -245,13 +244,17 @@ a {
   background-color: grey;
   font-family: "Courier New", Courier, monospace;
   color: black;
-  padding: 5vh;
 }
 
 .snippet-info {
   flex: 1;
   padding: 5vh;
   color: black;
+  font-size: 25px;
+}
+
+.section-dark .snippet-info {
+  color: white;
 }
 
 /*<span>Photo by <a href="https://unsplash.com/@picsbyjameslee?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">James Lee</a> on <a href="https://unsplash.com/s/photos/wide-owl?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></span>*/

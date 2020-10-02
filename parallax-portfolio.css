@@ -3,22 +3,8 @@
     display: flex;
     flex: 1;
     flex-direction: column;
-    align-items: center;
     padding: 0;
     margin: 0;
-  }
-
-  .snippet-code {
-    font-family: "Courier New", Courier, monospace;
-    color: black;
-    font-size: 16px;
-  }
-
-  .snippet-info {
-    color: black;
-    font-size: 25px;
-    margin: 0 2%;
-    padding: 0;
   }
 }
 
@@ -277,7 +263,7 @@ a {
   font-family: "Courier New", Courier, monospace;
   color: black;
   font-size: 16px;
-  display: table-row;
+  display: table;
 }
 
 .snippet-info {
@@ -291,14 +277,8 @@ a {
   color: white;
 }
 
-pre {
-  margin: 0;
-  padding: 0;
-  display: table-row;
-}
-
+pre,
 code {
-  margin: 0;
-  padding: 0;
+  white-space: normal;
 }
 /*<span>Photo by <a href="https://unsplash.com/@picsbyjameslee?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">James Lee</a> on <a href="https://unsplash.com/s/photos/wide-owl?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></span>*/

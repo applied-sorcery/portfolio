@@ -6,7 +6,7 @@
       name="viewport"
       content="width=device-width, initial-scale = 1.0, maximum-scale=1.0, user-scalable=no"
     />
-
+    <link rel="stylesheet" href="prism-theme.css" />
     <link
       rel="stylesheet"
       href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
@@ -19,12 +19,7 @@
       href="https://fonts.googleapis.com/css2?family=Cabin:wght@400;600&display=swap"
       rel="stylesheet"
     />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.21.0/themes/prism-coy.min.css"
-      integrity="sha512-CKzEMG9cS0+lcH4wtn/UnxnmxkaTFrviChikDEk1MAWICCSN59sDWIF0Q5oDgdG9lxVrvbENSV1FtjLiBnMx7Q=="
-      crossorigin="anonymous"
-    />
+
     <title>Tim Auldridge</title>
   </head>
 
@@ -108,6 +103,26 @@
       </div>
     </div>
     <section id="g-p" class="section section-dark">
+      <h2>Godot</h2>
+      <p>
+        This project is an early/ongoing effort and my first attempt to learn
+        how to make a 2D platformer in Godot. I found Godot was easy to get
+        started with and I was able to pick it up quickly with the help of the
+        AWESOME tutorial found <a href="https://youtu.be/wETY5_9kFtA">here</a>.
+        Check out the code on
+        <a href="https://github.com/applied-sorcery/jetpack">github</a>! I'll
+        post a couple of code snippets here, showcasing the best parts so far.
+        This "game" is "playable" if you click the link below, but there are
+        currently no objectives or exits, just a big, eternal sandbox right now.
+        With no quit button. Yet. To start "playing" click anywhere after the
+        page loads.
+
+        <a href="./jetpack/jetpack-game.html" target="_blank" id="load_home">
+          Experience The Jetpack
+        </a>
+        <br />
+      </p>
+      <h4>Screehots:</h4>
       <div class="screenshots-h">
         <div id="jetpack-carousel" class="carousel slide" data-ride="carousel">
           <!-- carousel indicators -->
@@ -147,73 +162,42 @@
           </div>
         </div>
       </div>
-
-      <h2>Godot</h2>
-      <p>
-        This project is an early/ongoing effort and my first attempt to learn
-        how to make a 2D platformer in Godot. I found Godot was easy to get
-        started with and I was able to pick it up quickly with the help of the
-        AWESOME tutorial found <a href="https://youtu.be/wETY5_9kFtA">here</a>.
-        Check out the code on
-        <a href="https://github.com/applied-sorcery/jetpack">github</a>! I'll
-        post a couple of code snippets here, showcasing the best parts so far.
-        This "game" is "playable" if you click the link below, but there are
-        currently no objectives or exits, just a big, eternal sandbox right now.
-        With no quit button. Yet. To start "playing" click anywhere after the
-        page loads.
-
-        <a href="./jetpack/jetpack-game.html" target="_blank" id="load_home">
-          Experience The Jetpack
-        </a>
-        <br />
-      </p>
-
-      <div id="g-snip" class="snippet flex-container">
+      <h4>Code Snippets:</h4>
+      <div class="snippet flex-container">
         <div class="snippet-code">
-          <div
-            id="snippet-carousel"
-            class="carousel slide"
-            data-ride="carousel"
-          >
-            <!-- carousel indicators -->
-            <ul class="carousel-indicators">
-              <li
-                data-target="#snippet-carousel"
-                data-slide-to="0"
-                class="active"
-              ></li>
-              <li data-target="#snippet-carousel" data-slide-to="1"></li>
-            </ul>
-            <!-- slideshow -->
-            <div class="carousel-inner">
-              <div class="carousel-item active">
-                <div class="view">
-                  <img src="./res/img/godot-snippet1.png" />
-                  <div class="mask rgba-black-light"></div>
-                </div>
-                <div class="carousel-caption">
-                  <h3 class="h3-responsive"></h3>
-                  <p>1/2</p>
-                </div>
-              </div>
-              <div class="carousel-item">
-                <div class="view">
-                  <img src="./res/img/godot-snippet2.png" />
-                  <div class="mask rgba-black-light"></div>
-                </div>
-                <div class="carousel-caption">
-                  <h3 class="h3-responsive"></h3>
-                  <p>2/2</p>
-                </div>
-              </div>
-            </div>
-          </div>
+          <pre><code class="language-javascript">if !jetpack_is_on:
+            if Input.is_action_pressed("ui_right"):
+              motion.x = min(motion.x + ACCEL, walking_speed)
+              $Sprite.flip_h = false
+              $Sprite.play("Run")
+            elif Input.is_action_pressed("ui_left"):
+              motion.x = max(motion.x - ACCEL, -walking_speed)
+              $Sprite.flip_h = true
+              $Sprite.play("Run")
+            else:
+                motion.x = 0
+                $Sprite.play("Idle")
+            motion.y += grav
+            if Input.is_action_just_pressed("ui_up"):
+              if is_on_floor():
+                motion.y += jump_height</code></pre>
+        </div>
+        <div class="snippet-info">
+          <p>
+            Here in the Player node's script file is the code responsible for
+            how the player moves. Mostly what is happening is we are checking
+            that the jetpack is off, modifying the motion variable, flipping and
+            animating the sprite when necessary, and of course, jumping. These
+            are the event handlers for pressing any of the arrow keys. Note the
+            `is_on_floor()` function. It's hard to jump if you aren't on the
+            floor.
+          </p>
         </div>
       </div>
     </section>
 
     <section id="r-p" class="section section-light">
-      <h1>React Native</h1>
+      <h2>React Native</h2>
       <p>
         This is an app I'm developing using React Native. It's purpose is to
         provide an intuitive, minimalist solution for tracking combat initiative
@@ -226,7 +210,7 @@
         <a href="https://github.com/applied-sorcery/track-init">github</a>!
         <br />
       </p>
-      <h3>Screenshots:</h3>
+      <h4>Screenshots:</h4>
       <div class="screenshots-v">
         <div id="react-carousel" class="carousel slide" data-ride="carousel">
           <!-- carousel indicators -->
@@ -266,7 +250,7 @@
           </a>
         </div>
       </div>
-      <h3>Code Snippets:</h3>
+      <h4>Code Snippets:</h4>
       <div class="snippet flex-container">
         <div class="snippet-code">
           <pre><code class="language-javascript">

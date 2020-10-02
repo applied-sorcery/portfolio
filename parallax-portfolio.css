@@ -54,7 +54,7 @@ html {
 }
 
 .section-dark {
-  background-color: #282e34;
+  background-color: #485a6c;
   color: #ddd;
 }
 
@@ -87,7 +87,7 @@ html {
 
 .screenshots-h {
   width: 75%;
-  margin: 0 auto 10% 0;
+  margin: 0 auto;
   padding-right: 10%;
 }
 @media (min-width: 1151px) {
@@ -261,24 +261,30 @@ a {
 
 .snippet-code {
   font-family: "Courier New", Courier, monospace;
-  color: black;
   font-size: 16px;
   display: table;
 }
 
+pre {
+  border-radius: 4%;
+}
 .snippet-info {
-  color: black;
   font-size: 25px;
-  margin: 0 2%;
   padding: 0;
+  margin: auto 5%;
+  text-align: center;
+  text-justify: center;
 }
 
 .section-dark .snippet-info {
   color: white;
 }
 
-pre,
-code {
-  white-space: normal;
+h1,
+h2,
+h3,
+h4 {
+  margin-top: 6%;
 }
+
 /*<span>Photo by <a href="https://unsplash.com/@picsbyjameslee?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">James Lee</a> on <a href="https://unsplash.com/s/photos/wide-owl?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></span>*/

@@ -115,8 +115,7 @@ html {
 }
 @media (max-width: 568px) {
   .img1,
-  .img2,
-  .img3 {
+  .img2 {
     max-width: 100%;
     background-attachment: scroll;
     background-position-x: 30%;
@@ -147,6 +146,12 @@ html {
   #projectsTitle {
     position: relative;
     top: 20vh;
+  }
+
+  .snippet-code,
+  .snippet {
+    overflow: auto;
+    line-height: 1.8em;
   }
 }
 
@@ -247,16 +252,11 @@ a {
   height: 100%;
 }
 
-/* .hidden {
-  display: none;
-} */
 .snippet {
   display: flex;
   flex: 1;
-  align-items: center;
   padding: 0;
   margin: 0;
-  overflow: auto;
 }
 
 .snippet-code {

@@ -1,3 +1,27 @@
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+  .snippet {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+  }
+
+  .snippet-code {
+    font-family: "Courier New", Courier, monospace;
+    color: black;
+    font-size: 16px;
+  }
+
+  .snippet-info {
+    color: black;
+    font-size: 25px;
+    margin: 0 2%;
+    padding: 0;
+  }
+}
+
 body,
 html {
   height: 100%;
@@ -102,12 +126,6 @@ html {
   .snippet {
     flex-direction: column;
   }
-
-  .snippet-code {
-    width: 90%;
-    margin: 0;
-    padding: 0;
-  }
 }
 @media (max-width: 568px) {
   .img1,
@@ -145,6 +163,12 @@ html {
     top: 20vh;
   }
 }
+
+/* @media (max-width: 850px) {
+  .snippet {
+    flex-direction: column;
+  }
+} */
 
 button {
   border: none;
@@ -237,34 +261,44 @@ a {
   height: 100%;
 }
 
-.hidden {
+/* .hidden {
   display: none;
-}
+} */
 .snippet {
-  display: none;
+  display: flex;
   flex: 1;
-  /* flex-direction: row; */
   align-items: center;
   padding: 0;
   margin: 0;
+  overflow: auto;
 }
 
 .snippet-code {
-  flex: 1;
   font-family: "Courier New", Courier, monospace;
   color: black;
   font-size: 16px;
+  display: table-row;
 }
 
 .snippet-info {
-  flex: 1;
   color: black;
   font-size: 25px;
-  margin: 2%;
+  margin: 0 2%;
+  padding: 0;
 }
 
 .section-dark .snippet-info {
   color: white;
 }
 
+pre {
+  margin: 0;
+  padding: 0;
+  display: table-row;
+}
+
+code {
+  margin: 0;
+  padding: 0;
+}
 /*<span>Photo by <a href="https://unsplash.com/@picsbyjameslee?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">James Lee</a> on <a href="https://unsplash.com/s/photos/wide-owl?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></span>*/

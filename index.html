@@ -159,14 +159,20 @@
         }
 
         .logo-box {
-            background: white;
+            background: transparent;
             padding: 0.5rem;
             border-radius: 0.5rem;
+            /* border-width: 2px;
+            border-color: #4ecdc4;
+            border-style: solid; */
         }
 
         .logo {
-            height: 2rem;
+            height: 15rem;
             width: auto;
+            /* border-width: 2px;
+            border-color: #801f72;
+            border-style: solid; */
         }
 
         .brand-name {
@@ -183,9 +189,18 @@
         }
 
         .hero {
-            text-align: center;
-            max-width: 896px;
-            margin: 0 auto;
+        text-align: center;
+        max-width: 896px;
+        margin: 0 auto;
+        transition: all 0.3s ease-in-out;
+        }
+
+        .hero.hidden {
+        opacity: 0;
+        transform: translateY(-20px);
+        pointer-events: none;
+        height: 0;
+        overflow: hidden;
         }
 
         .hero h1 {
@@ -492,9 +507,166 @@
             transform: translateY(-2px);
         }
 
-        .transaction-item.trial {
-            border-left: 4px solid #ff6b6b;
-        }
+        .trial-expandable {
+    cursor: pointer;
+}
+
+.trial-header {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.trial-expand-icon {
+    margin-left: auto;
+    font-size: 1.2rem;
+    transition: transform 0.3s ease;
+}
+
+.trial-expanded .trial-expand-icon {
+    transform: rotate(180deg);
+}
+
+.trial-details {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    margin-top: 0;
+}
+
+.trial-expanded .trial-details {
+    max-height: 200px;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.trial-progress {
+    margin-bottom: 1rem;
+}
+
+.trial-progress-label {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin-bottom: 0.5rem;
+}
+
+.trial-progress-bar {
+    width: 100%;
+    height: 8px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.trial-progress-fill {
+    height: 100%;
+    border-radius: 4px;
+    transition: width 0.3s ease;
+}
+
+.trial-progress-urgent {
+    background: linear-gradient(90deg, #ff6b6b, #ff4444);
+}
+
+.trial-progress-warning {
+    background: linear-gradient(90deg, #ff9500, #ffaa00);
+}
+
+
+.subscription-expandable {
+    cursor: pointer;
+}
+
+.subscription-header {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.subscription-expand-icon {
+    margin-left: auto;
+    font-size: 1.2rem;
+    transition: transform 0.3s ease;
+}
+
+.subscription-expanded .subscription-expand-icon {
+    transform: rotate(180deg);
+}
+
+.subscription-details {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    margin-top: 0;
+}
+
+.subscription-expanded .subscription-details {
+    max-height: 200px;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.subscription-spending {
+    margin-bottom: 1rem;
+}
+
+.subscription-spending-label {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin-bottom: 0.5rem;
+}
+
+.spending-amount {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+.spending-visual {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+.spending-bar {
+    flex: 1;
+    height: 6px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.spending-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+    border-radius: 3px;
+    transition: width 0.3s ease;
+}
+
+.total-spending {
+    background: var(--card-bg);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 1rem;
+    border-radius: 0.75rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.total-spending-label {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin-bottom: 0.25rem;
+}
+
+.total-spending-amount {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--primary-color);
+}
 
         .transaction-logo img {
             width: 32px;
@@ -566,12 +738,17 @@
         function toggleManageCards() {
             const cardManagement = document.getElementById('card-management');
             const cardDetails = document.getElementById('card-details');
+            const heroSection = document.querySelector('.hero');
             
             if (cardManagement.classList.contains('hidden')) {
+                // Show card management, hide hero content
                 cardManagement.classList.remove('hidden');
                 cardDetails.classList.add('hidden');
+                heroSection.classList.add('hidden');
             } else {
+                // Hide card management, show hero content
                 cardManagement.classList.add('hidden');
+                heroSection.classList.remove('hidden');
             }
         }
 
@@ -646,6 +823,14 @@
             alert(`Pause ${cardId} functionality will be implemented`);
         }
 
+        function toggleTrial(element) {
+    element.classList.toggle('trial-expanded');
+}
+
+function toggleSubscription(element) {
+    element.classList.toggle('subscription-expanded');
+}
+
         // Close dropdowns when clicking outside
         document.addEventListener('click', function() {
             document.querySelectorAll('.dropdown-menu').forEach(menu => {
@@ -659,13 +844,13 @@
     </script>
 </head>
 <body>
-    <!-- Theme Switcher -->
+    <!-- Theme Switcher 
     <div class="theme-switcher">
         <button class="theme-btn" onclick="setTheme('default')" data-theme="default">Default</button>
         <button class="theme-btn" onclick="setTheme('cyberpunk')" data-theme="cyberpunk">Cyberpunk</button>
         <button class="theme-btn" onclick="setTheme('luxury')" data-theme="luxury">Luxury</button>
         <button class="theme-btn" onclick="setTheme('retro')" data-theme="retro">Retro</button>
-    </div>
+    </div> -->
 
     <div class="background">
         <img src="https://images.unsplash.com/photo-1557804506-669a67965ba0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" alt="Background">
@@ -675,9 +860,8 @@
         <div class="nav-content">
             <div class="logo-container">
                 <div class="logo-box">
-                    <img src="https://images.unsplash.com/photo-1599305445671-ac291c95aaa9?ixlib=rb-4.0.3&auto=format&fit=crop&w=40&h=40&q=80" alt="Solve-It Logo" class="logo">
+                    <img src="./assets/SolveIt.png" alt="Solve-It Logo" class="logo">
                 </div>
-                <span class="brand-name">Solve-It</span>
             </div>
         </div>
     </nav>
@@ -760,60 +944,125 @@
                 </div>
                 
                 <div id="trials-content" class="subcategory-content">
-                    <div class="transaction-item trial">
-                        <div class="transaction-logo">
-                            <img src="https://images.unsplash.com/photo-1611339555312-e607c8352fd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=32&h=32&q=80" alt="Spotify">
-                        </div>
-                        <div class="transaction-details">
-                            <div class="transaction-name">Spotify Premium</div>
-                            <div class="transaction-info">Free trial - Cancel by Dec 15, 2024</div>
-                        </div>
-                        <div class="transaction-actions">
-                            <button class="action-btn">Set Reminder</button>
-                            <button class="action-btn">Cancel Now</button>
-                        </div>
-                    </div>
-                    
-                    <div class="transaction-item trial">
-                        <div class="transaction-logo">
-                            <img src="https://images.unsplash.com/photo-1626814026160-2237a95fc5a0?ixlib=rb-4.0.3&auto=format&fit=crop&w=32&h=32&q=80" alt="Disney+">
-                        </div>
-                        <div class="transaction-details">
-                            <div class="transaction-name">Disney+</div>
-                            <div class="transaction-info">Free trial - Cancel by Dec 20, 2024</div>
-                        </div>
-                        <div class="transaction-actions">
-                            <button class="action-btn">Set Reminder</button>
-                            <button class="action-btn">Cancel Now</button>
-                        </div>
-                    </div>
+    <div class="transaction-item trial trial-expandable" onclick="toggleTrial(this)">
+        <div class="trial-header">
+            <div class="transaction-logo">
+                <img src="https://images.unsplash.com/photo-1611339555312-e607c8352fd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=32&h=32&q=80" alt="Spotify">
+            </div>
+            <div class="transaction-details">
+                <div class="transaction-name">Spotify Premium</div>
+                <div class="transaction-info">Free trial - Cancel by Dec 15, 2024</div>
+            </div>
+            <div class="trial-expand-icon">▼</div>
+        </div>
+        <div class="trial-details">
+            <div class="trial-progress">
+                <div class="trial-progress-label">Time until auto-renewal</div>
+                <div class="trial-progress-bar">
+                    <div class="trial-progress-fill trial-progress-urgent" style="width: 15%;"></div>
                 </div>
+            </div>
+            <div class="transaction-actions">
+                <button class="action-btn">Set Reminder</button>
+                <button class="action-btn">Cancel Now</button>
+            </div>
+        </div>
+    </div>
+    
+    <div class="transaction-item trial trial-expandable" onclick="toggleTrial(this)">
+        <div class="trial-header">
+            <div class="transaction-logo">
+                <img src="https://images.unsplash.com/photo-1626814026160-2237a95fc5a0?ixlib=rb-4.0.3&auto=format&fit=crop&w=32&h=32&q=80" alt="Disney+">
+            </div>
+            <div class="transaction-details">
+                <div class="transaction-name">Disney+</div>
+                <div class="transaction-info">Free trial - Cancel by Dec 20, 2024</div>
+            </div>
+            <div class="trial-expand-icon">▼</div>
+        </div>
+        <div class="trial-details">
+            <div class="trial-progress">
+                <div class="trial-progress-label">Time until auto-renewal</div>
+                <div class="trial-progress-bar">
+                    <div class="trial-progress-fill trial-progress-warning" style="width: 45%;"></div>
+                </div>
+            </div>
+            <div class="transaction-actions">
+                <button class="action-btn">Set Reminder</button>
+                <button class="action-btn">Cancel Now</button>
+            </div>
+        </div>
+    </div>
+</div>
                 
                 <div id="active-content" class="subcategory-content hidden">
-                    <div class="transaction-item">
-                        <div class="transaction-logo">
-                            <img src="https://images.unsplash.com/photo-1574375927938-d5a98e8ffe85?ixlib=rb-4.0.3&auto=format&fit=crop&w=32&h=32&q=80" alt="Netflix">
-                        </div>
-                        <div class="transaction-details">
-                            <div class="transaction-name">Netflix</div>
-                            <div class="transaction-info">Next billing: Jan 15, 2025 - $15.99/month</div>
-                        </div>
-                        <div class="transaction-actions">
-                            <button class="action-btn">Manage</button>
-                            <button class="action-btn">Cancel</button>
-                        </div>
+    <div class="total-spending">
+        <div class="total-spending-label">Total spent on active subscriptions</div>
+        <div class="total-spending-amount">$347.76</div>
+    </div>
+    
+    <div class="transaction-item subscription-expandable" onclick="toggleSubscription(this)">
+        <div class="subscription-header">
+            <div class="transaction-logo">
+                <img src="https://images.unsplash.com/photo-1574375927938-d5a98e8ffe85?ixlib=rb-4.0.3&auto=format&fit=crop&w=32&h=32&q=80" alt="Netflix">
+            </div>
+            <div class="transaction-details">
+                <div class="transaction-name">Netflix</div>
+                <div class="transaction-info">Next billing: Jan 15, 2025 - $15.99/month</div>
+            </div>
+            <div class="subscription-expand-icon">▼</div>
+        </div>
+        <div class="subscription-details">
+            <div class="subscription-spending">
+                <div class="subscription-spending-label">Total spent on this subscription</div>
+                <div class="spending-amount">$191.88</div>
+                <div class="spending-visual">
+                    <div class="spending-bar">
+                        <div class="spending-fill" style="width: 65%;"></div>
                     </div>
-                    
-                    <div class="transaction-item">
-                        <div class="transaction-logo">
-                            <img src="https://images.unsplash.com/photo-1618044733300-9472054094ee?ixlib=rb-4.0.3&auto=format&fit=crop&w=32&h=32&q=80" alt="Adobe">
-                        </div>
-                        <div class="transaction-details">
-                            <div class="transaction-name">Adobe Creative Cloud</div>
-                            <div class="transaction-info">Next billing: Jan 8, 2025 - $52.99/month</div>
-                        </div>
-                        <div class="transaction-actions">
-                            <button class="action-btn">Manage</button>
-                            <button class="action-btn">Cancel</button>
-                        </div>
+                    <span style="font-size: 0.8rem; color: var(--text-secondary);">12 months</span>
+                </div>
+            </div>
+            <div class="transaction-actions">
+                <button class="action-btn">Manage</button>
+                <button class="action-btn">Cancel</button>
+            </div>
+        </div>
+    </div>
+    
+    <div class="transaction-item subscription-expandable" onclick="toggleSubscription(this)">
+        <div class="subscription-header">
+            <div class="transaction-logo">
+                <img src="https://images.unsplash.com/photo-1618044733300-9472054094ee?ixlib=rb-4.0.3&auto=format&fit=crop&w=32&h=32&q=80" alt="Adobe">
+            </div>
+            <div class="transaction-details">
+                <div class="transaction-name">Adobe Creative Cloud</div>
+                <div class="transaction-info">Next billing: Jan 8, 2025 - $52.99/month</div>
+            </div>
+            <div class="subscription-expand-icon">▼</div>
+        </div>
+        <div class="subscription-details">
+            <div class="subscription-spending">
+                <div class="subscription-spending-label">Total spent on this subscription</div>
+                <div class="spending-amount">$155.88</div>
+                <div class="spending-visual">
+                    <div class="spending-bar">
+                        <div class="spending-fill" style="width: 35%;"></div>
+                    </div>
+                    <span style="font-size: 0.8rem; color: var(--text-secondary);">3 months</span>
+                </div>
+            </div>
+            <div class="transaction-actions">
+                <button class="action-btn">Manage</button>
+                <button class="action-btn">Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>
+            </div>
+        </div>
+    </main>
+</body>
+
+
                     

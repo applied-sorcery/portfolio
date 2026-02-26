@@ -1022,32 +1022,32 @@
     </style>
     <script>
         // ========== AUTHORIZATION CHECK ==========
-        function initializeAuth() {
-            const urlParams = new URLSearchParams(window.location.search);
-            const token = urlParams.get('token');
+        // function initializeAuth() {
+        //     const urlParams = new URLSearchParams(window.location.search);
+        //     const token = urlParams.get('token');
 
-            // Valid tokens - update these with your own tokens
-            const validTokens = {
-                'team-demo-2025': true,
-                'investor-access-x7k9': true,
-                'partner-review-a4m2': true
-            };
+        //     // Valid tokens - update these with your own tokens
+        //     const validTokens = {
+        //         'team-demo-2025': true,
+        //         'investor-access-x7k9': true,
+        //         'partner-review-a4m2': true
+        //     };
 
-            // Redirect URL for unauthorized access
-            const redirectURL = 'https://www.example.com/access-denied';
+        //     // Redirect URL for unauthorized access
+        //     const redirectURL = 'https://www.example.com/access-denied';
 
-            // Check if token exists and is valid
-            if (!token || !validTokens[token]) {
-                window.location.href = redirectURL;
-                return;
-            }
+        //     // Check if token exists and is valid
+        //     if (!token || !validTokens[token]) {
+        //         window.location.href = redirectURL;
+        //         return;
+        //     }
 
-            // Store token in session (optional, for reference)
-            sessionStorage.setItem('access-token', token);
-        }
+        //     // Store token in session (optional, for reference)
+        //     sessionStorage.setItem('access-token', token);
+        // }
 
-        // Run authorization check immediately on page load
-        initializeAuth();
+        // // Run authorization check immediately on page load
+        // initializeAuth();
 
         // ========== LANDING PAGE NAVIGATION ==========
 

@@ -1,14 +1,15 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="default">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Solve-It - Take Control of Your Subscriptions</title>
+    <title>Solved - Take Control of Your Subscriptions</title>
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Space+Grotesk:wght@400;600;700&family=Playfair+Display:wght@400;700&family=Rajdhani:wght@400;600;700&family=Righteous&family=Monoton&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
-        /* Theme Definitions */
-        html[data-theme="default"] {
+        /* ========== CSS VARIABLES & GLOBAL STYLES ========== */
+
+        html {
             --heading-font: 'Space Grotesk', sans-serif;
             --body-font: 'Poppins', sans-serif;
             --primary-color: #6366f1;
@@ -20,77 +21,6 @@
             --text-secondary: rgba(255, 255, 255, 0.9);
             --overlay-gradient: linear-gradient(135deg, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.5) 100%);
             --button-shadow: rgba(99, 102, 241, 0.5);
-        }
-
-        html[data-theme="cyberpunk"] {
-            --heading-font: 'Righteous', cursive;
-            --body-font: 'Rajdhani', sans-serif;
-            --primary-color: #ff0055;
-            --primary-dark: #cc0044;
-            --accent-color: #00ff88;
-            --card-bg: rgba(255, 0, 85, 0.1);
-            --card-hover: rgba(255, 0, 85, 0.2);
-            --text-primary: #ffffff;
-            --text-secondary: rgba(0, 255, 136, 0.9);
-            --overlay-gradient: linear-gradient(135deg, rgba(255, 0, 85, 0.3) 0%, rgba(0, 255, 136, 0.3) 100%);
-            --button-shadow: rgba(255, 0, 85, 0.5);
-        }
-
-        html[data-theme="luxury"] {
-            --heading-font: 'Playfair Display', serif;
-            --body-font: 'Poppins', sans-serif;
-            --primary-color: #c9a55c;
-            --primary-dark: #b08d3c;
-            --accent-color: #1e293b;
-            --card-bg: rgba(201, 165, 92, 0.1);
-            --card-hover: rgba(201, 165, 92, 0.2);
-            --text-primary: #ffffff;
-            --text-secondary: rgba(255, 255, 255, 0.85);
-            --overlay-gradient: linear-gradient(135deg, rgba(30, 41, 59, 0.8) 0%, rgba(30, 41, 59, 0.9) 100%);
-            --button-shadow: rgba(201, 165, 92, 0.5);
-        }
-
-        html[data-theme="retro"] {
-            --heading-font: 'Monoton', cursive;
-            --body-font: 'Space Grotesk', sans-serif;
-            --primary-color: #ff6b6b;
-            --primary-dark: #ff5252;
-            --accent-color: #4ecdc4;
-            --card-bg: rgba(255, 107, 107, 0.1);
-            --card-hover: rgba(255, 107, 107, 0.2);
-            --text-primary: #ffffff;
-            --text-secondary: rgba(78, 205, 196, 0.9);
-            --overlay-gradient: linear-gradient(45deg, rgba(255, 107, 107, 0.4) 0%, rgba(78, 205, 196, 0.4) 100%);
-            --button-shadow: rgba(255, 107, 107, 0.5);
-        }
-
-        /* Theme Switcher Styles */
-        .theme-switcher {
-            position: fixed;
-            bottom: 2rem;
-            right: 2rem;
-            background: rgba(0, 0, 0, 0.8);
-            padding: 1rem;
-            border-radius: 1rem;
-            z-index: 1000;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .theme-btn {
-            padding: 0.5rem 1rem;
-            margin: 0.25rem;
-            border: none;
-            border-radius: 0.5rem;
-            cursor: pointer;
-            font-family: var(--body-font);
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
-
-        .theme-btn.active {
-            background: var(--primary-color);
-            color: white;
         }
 
         /* Base Styles */
@@ -107,12 +37,15 @@
             min-height: 100vh;
             position: relative;
             transition: all 0.5s ease-in-out;
+            overflow-y: scroll;
         }
 
-        h1, h2, h3, .brand-name {
+        h1, h2, h3 {
             font-family: var(--heading-font);
             transition: all 0.3s ease-in-out;
         }
+
+        /* ========== LAYOUT & BACKGROUND ========== */
 
         .background {
             position: fixed;
@@ -158,40 +91,24 @@
             align-items: center;
         }
 
-        .logo-box {
-            background: transparent;
-            padding: 0.5rem;
-            border-radius: 0.5rem;
-            /* border-width: 2px;
-            border-color: #4ecdc4;
-            border-style: solid; */
-        }
-
         .logo {
             height: 15rem;
             width: auto;
-            /* border-width: 2px;
-            border-color: #801f72;
-            border-style: solid; */
-        }
-
-        .brand-name {
-            font-size: 1.5rem;
-            font-weight: bold;
-            margin-left: 1rem;
-            letter-spacing: -0.5px;
         }
 
         .main-content {
-            max-width: 1280px;
+            max-width: 100%;
             margin: 0 auto;
-            padding: 5rem 1.5rem;
+            padding: 0;
         }
+
+        /* ========== HERO SECTION ========== */
 
         .hero {
         text-align: center;
-        max-width: 896px;
+        max-width: 1280px;
         margin: 0 auto;
+        padding: 0 1.5rem;
         transition: all 0.3s ease-in-out;
         }
 
@@ -221,6 +138,7 @@
         .download-btn {
             display: inline-flex;
             align-items: center;
+            justify-content: center;
             background: var(--primary-color);
             color: white;
             padding: 1rem 2rem;
@@ -231,6 +149,7 @@
             cursor: pointer;
             transition: all 0.3s ease-in-out;
             font-family: var(--body-font);
+            text-align: center;
         }
 
         .download-btn:hover {
@@ -243,69 +162,171 @@
             margin-right: 0.5rem;
         }
 
-        .features {
+        .hero-buttons-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(3, 1fr);
             gap: 2rem;
-            margin-top: 6rem;
+            max-width: 100%;
+            margin: 0 auto;
         }
 
-        .feature-card {
+        .button-with-description {
             background: var(--card-bg);
             backdrop-filter: blur(8px);
-            padding: 2rem;
-            border-radius: 1rem;
-            transition: all 0.3s ease-in-out;
-            cursor: pointer;
             border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .feature-card:hover {
-            background: var(--card-hover);
-            transform: scale(1.05);
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
-            border-color: var(--accent-color);
-        }
-
-        .feature-icon {
-            background: var(--primary-color);
-            width: 3.5rem;
-            height: 3.5rem;
-            border-radius: 0.75rem;
+            border-radius: 1rem;
+            padding: 2.5rem 2rem;
             display: flex;
+            flex-direction: column;
             align-items: center;
-            justify-content: center;
-            margin-bottom: 1.5rem;
-            transition: all 0.3s ease-in-out;
+            gap: 1.25rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
         }
 
-        .feature-card:hover .feature-icon {
-            background: var(--accent-color);
-            transform: scale(1.1);
+        .button-with-description:hover {
+            background: var(--card-hover);
+            border-color: var(--accent-color);
+            transform: translateY(-4px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
         }
 
-        .feature-title {
-            font-size: 1.375rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-            font-family: var(--heading-font);
+        .button-with-description .download-btn {
+            margin: 0;
+            width: 100%;
         }
 
-        .feature-text {
+        .button-description {
+            font-size: 0.9rem;
             color: var(--text-secondary);
-            line-height: 1.7;
+            text-align: center;
+            line-height: 1.5;
         }
 
-        /* Card Management Styles */
+        /* ========== BILL & RESOURCES SECTIONS ========== */
+
+        .bills-section,
+        .resources-section {
+            margin-top: 0;
+            max-width: 1280px;
+            margin-left: auto;
+            margin-right: auto;
+            padding-top: 4rem;
+            padding-left: 1.5rem;
+            padding-right: 1.5rem;
+        }
+
+        .bills-section h2,
+        .resources-section h2 {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .bills-list,
+        .resources-grid {
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .bill-item,
+        .resource-item {
+            background: var(--card-bg);
+            backdrop-filter: blur(8px);
+            padding: 1.5rem;
+            border-radius: 1rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .bill-item:hover,
+        .resource-item:hover {
+            background: var(--card-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+
+        .bill-header,
+        .resource-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            gap: 1rem;
+        }
+
+        .bill-info,
+        .resource-info {
+            flex: 1;
+        }
+
+        .bill-name,
+        .resource-name {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .bill-description,
+        .resource-description {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            line-height: 1.5;
+            margin-bottom: 0.75rem;
+        }
+
+        .bill-amount {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        .bill-frequency {
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+        }
+
+        .resource-link {
+            display: inline-block;
+            color: var(--accent-color);
+            text-decoration: none;
+            font-size: 0.9rem;
+            padding: 0.5rem 1rem;
+            background: rgba(34, 211, 238, 0.1);
+            border-radius: 0.5rem;
+            transition: all 0.3s ease;
+            margin-top: 0.5rem;
+        }
+
+        .resource-link:hover {
+            background: rgba(34, 211, 238, 0.2);
+            transform: translateX(4px);
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 3rem 1rem;
+            color: var(--text-secondary);
+        }
+
+        .empty-state-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            opacity: 0.5;
+        }
+
+        /* ========== CARD MANAGEMENT ========== */
         .hidden {
             display: none !important;
         }
 
         .card-management {
-            margin-top: 4rem;
-            max-width: 800px;
+            margin-top: 0;
+            max-width: 1280px;
             margin-left: auto;
             margin-right: auto;
+            padding-top: 4rem;
+            padding-left: 1.5rem;
+            padding-right: 1.5rem;
         }
 
         .card-management h2 {
@@ -408,12 +429,16 @@
             background: var(--primary-color);
         }
 
-        /* Card Details Styles */
+        /* ========== CARD DETAILS & TRANSACTIONS ========== */
         .card-details {
-            margin-top: 4rem;
-            max-width: 1000px;
+            margin-top: 0;
+            max-width: 1280px;
             margin-left: auto;
             margin-right: auto;
+            padding-top: 4rem;
+            padding-left: 1.5rem;
+            padding-right: 1.5rem;
+            position: relative;
         }
 
         .card-details-header {
@@ -424,19 +449,37 @@
         }
 
         .back-btn {
-            background: var(--card-bg);
+            position: fixed;
+            top: 1.5rem;
+            left: 1.5rem;
+            z-index: 50;
+            background: rgba(99, 102, 241, 0.1);
             backdrop-filter: blur(8px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(99, 102, 241, 0.3);
             color: var(--text-primary);
-            padding: 0.75rem 1.5rem;
+            padding: 0.5rem 1rem;
+            font-size: 0.9rem;
             border-radius: 0.5rem;
             cursor: pointer;
             transition: all 0.3s ease;
             font-family: var(--body-font);
+            opacity: 0;
+            pointer-events: none;
+            visibility: hidden;
         }
 
         .back-btn:hover {
-            background: var(--card-hover);
+            background: rgba(99, 102, 241, 0.2);
+            border-color: rgba(99, 102, 241, 0.6);
+        }
+
+        .card-management .back-btn,
+        .card-details .back-btn,
+        .bills-section .back-btn,
+        .resources-section .back-btn {
+            opacity: 1;
+            pointer-events: auto;
+            visibility: visible;
         }
 
         .transaction-categories {
@@ -507,166 +550,167 @@
             transform: translateY(-2px);
         }
 
+        /* Free Trials - Expandable */
         .trial-expandable {
-    cursor: pointer;
-}
+            cursor: pointer;
+        }
 
-.trial-header {
-    display: flex;
-    align-items: center;
-    width: 100%;
-}
+        .trial-header {
+            display: flex;
+            align-items: center;
+            width: 100%;
+        }
 
-.trial-expand-icon {
-    margin-left: auto;
-    font-size: 1.2rem;
-    transition: transform 0.3s ease;
-}
+        .trial-expand-icon {
+            margin-left: auto;
+            font-size: 1.2rem;
+            transition: transform 0.3s ease;
+        }
 
-.trial-expanded .trial-expand-icon {
-    transform: rotate(180deg);
-}
+        .trial-expanded .trial-expand-icon {
+            transform: rotate(180deg);
+        }
 
-.trial-details {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.3s ease;
-    margin-top: 0;
-}
+        .trial-details {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            margin-top: 0;
+        }
 
-.trial-expanded .trial-details {
-    max-height: 200px;
-    margin-top: 1rem;
-    padding-top: 1rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-}
+        .trial-expanded .trial-details {
+            max-height: 200px;
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
 
-.trial-progress {
-    margin-bottom: 1rem;
-}
+        .trial-progress {
+            margin-bottom: 1rem;
+        }
 
-.trial-progress-label {
-    font-size: 0.9rem;
-    color: var(--text-secondary);
-    margin-bottom: 0.5rem;
-}
+        .trial-progress-label {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: 0.5rem;
+        }
 
-.trial-progress-bar {
-    width: 100%;
-    height: 8px;
-    background: rgba(255, 255, 255, 0.2);
-    border-radius: 4px;
-    overflow: hidden;
-}
+        .trial-progress-bar {
+            width: 100%;
+            height: 8px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 4px;
+            overflow: hidden;
+        }
 
-.trial-progress-fill {
-    height: 100%;
-    border-radius: 4px;
-    transition: width 0.3s ease;
-}
+        .trial-progress-fill {
+            height: 100%;
+            border-radius: 4px;
+            transition: width 0.3s ease;
+        }
 
-.trial-progress-urgent {
-    background: linear-gradient(90deg, #ff6b6b, #ff4444);
-}
+        .trial-progress-urgent {
+            background: linear-gradient(90deg, #ff6b6b, #ff4444);
+        }
 
-.trial-progress-warning {
-    background: linear-gradient(90deg, #ff9500, #ffaa00);
-}
+        .trial-progress-warning {
+            background: linear-gradient(90deg, #ff9500, #ffaa00);
+        }
 
+        /* Active Subscriptions - Expandable */
+        .subscription-expandable {
+            cursor: pointer;
+        }
 
-.subscription-expandable {
-    cursor: pointer;
-}
+        .subscription-header {
+            display: flex;
+            align-items: center;
+            width: 100%;
+        }
 
-.subscription-header {
-    display: flex;
-    align-items: center;
-    width: 100%;
-}
+        .subscription-expand-icon {
+            margin-left: auto;
+            font-size: 1.2rem;
+            transition: transform 0.3s ease;
+        }
 
-.subscription-expand-icon {
-    margin-left: auto;
-    font-size: 1.2rem;
-    transition: transform 0.3s ease;
-}
+        .subscription-expanded .subscription-expand-icon {
+            transform: rotate(180deg);
+        }
 
-.subscription-expanded .subscription-expand-icon {
-    transform: rotate(180deg);
-}
+        .subscription-details {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            margin-top: 0;
+        }
 
-.subscription-details {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.3s ease;
-    margin-top: 0;
-}
+        .subscription-expanded .subscription-details {
+            max-height: 200px;
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
 
-.subscription-expanded .subscription-details {
-    max-height: 200px;
-    margin-top: 1rem;
-    padding-top: 1rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-}
+        .subscription-spending {
+            margin-bottom: 1rem;
+        }
 
-.subscription-spending {
-    margin-bottom: 1rem;
-}
+        .subscription-spending-label {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: 0.5rem;
+        }
 
-.subscription-spending-label {
-    font-size: 0.9rem;
-    color: var(--text-secondary);
-    margin-bottom: 0.5rem;
-}
+        .spending-amount {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--primary-color);
+        }
 
-.spending-amount {
-    font-size: 1.1rem;
-    font-weight: 600;
-    color: var(--primary-color);
-}
+        .spending-visual {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 0.5rem;
+        }
 
-.spending-visual {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    margin-top: 0.5rem;
-}
+        .spending-bar {
+            flex: 1;
+            height: 6px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 3px;
+            overflow: hidden;
+        }
 
-.spending-bar {
-    flex: 1;
-    height: 6px;
-    background: rgba(255, 255, 255, 0.2);
-    border-radius: 3px;
-    overflow: hidden;
-}
+        .spending-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+            border-radius: 3px;
+            transition: width 0.3s ease;
+        }
 
-.spending-fill {
-    height: 100%;
-    background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
-    border-radius: 3px;
-    transition: width 0.3s ease;
-}
+        .total-spending {
+            background: var(--card-bg);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 1rem;
+            border-radius: 0.75rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
 
-.total-spending {
-    background: var(--card-bg);
-    backdrop-filter: blur(8px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    padding: 1rem;
-    border-radius: 0.75rem;
-    margin-bottom: 1.5rem;
-    text-align: center;
-}
+        .total-spending-label {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: 0.25rem;
+        }
 
-.total-spending-label {
-    font-size: 0.9rem;
-    color: var(--text-secondary);
-    margin-bottom: 0.25rem;
-}
-
-.total-spending-amount {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: var(--primary-color);
-}
+        .total-spending-amount {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
 
         .transaction-logo img {
             width: 32px;
@@ -710,53 +754,317 @@
             transform: scale(1.05);
         }
 
+        /* ========== LANDING PAGE ========== */
+
+        .landing-page {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .landing-navbar {
+            padding: 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1280px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .landing-branding {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 0.25rem;
+        }
+
+        .landing-brand-name {
+            font-size: 1.75rem;
+            font-weight: bold;
+            font-family: var(--heading-font);
+            margin: 0;
+        }
+
+        .landing-brand-tagline {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            font-family: var(--body-font);
+            font-weight: 400;
+            margin: 0;
+        }
+
+        .auth-buttons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .auth-btn {
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            font-family: var(--body-font);
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .login-btn {
+            background: transparent;
+            color: var(--text-primary);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .login-btn:hover {
+            border-color: var(--accent-color);
+            color: var(--accent-color);
+        }
+
+        .signup-btn {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .signup-btn:hover {
+            background: var(--primary-dark);
+            transform: scale(1.05);
+        }
+
+        .landing-hero {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 3rem 1.5rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .landing-hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .landing-hero-content p {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            margin-bottom: 2.5rem;
+            line-height: 1.6;
+        }
+
+        .landing-cta-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .cta-primary {
+            background: var(--primary-color);
+            color: white;
+            padding: 1rem 2.5rem;
+            border-radius: 0.75rem;
+            border: none;
+            font-size: 1.1rem;
+            font-weight: 600;
+            font-family: var(--body-font);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .cta-primary:hover {
+            background: var(--primary-dark);
+            transform: scale(1.05);
+            box-shadow: 0 0 30px var(--button-shadow);
+        }
+
+        .cta-secondary {
+            background: transparent;
+            color: var(--text-primary);
+            padding: 1rem 2.5rem;
+            border-radius: 0.75rem;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            font-size: 1.1rem;
+            font-weight: 600;
+            font-family: var(--body-font);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .cta-secondary:hover {
+            border-color: var(--accent-color);
+            color: var(--accent-color);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            padding: 3rem 1.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .feature {
+            text-align: center;
+        }
+
+        .feature-icon-circle {
+            width: 4rem;
+            height: 4rem;
+            background: var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            font-size: 1.5rem;
+        }
+
+        .feature h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .feature p {
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .app-page {
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* ========== RESPONSIVE DESIGN ========== */
         @media (max-width: 768px) {
+            .landing-navbar {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+
+            .landing-hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .landing-hero-content p {
+                font-size: 1rem;
+            }
+
+            .landing-cta-buttons {
+                flex-direction: column;
+            }
+
+            .cta-primary,
+            .cta-secondary {
+                width: 100%;
+            }
+
+            .auth-buttons {
+                width: 100%;
+                justify-content: center;
+            }
+
             .hero h1 {
                 font-size: 2.5rem;
             }
 
-            .features {
+            .hero-buttons-container {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .button-with-description {
+                padding: 2rem 1.5rem;
+            }
+
+            .download-btn {
+                font-size: 1rem;
+                padding: 0.875rem 1.5rem;
+            }
+
+            .bills-list,
+            .resources-grid {
                 grid-template-columns: 1fr;
             }
         }
     </style>
     <script>
-        function setTheme(themeName) {
-            console.log('Setting theme to:', themeName);
-            document.documentElement.setAttribute('data-theme', themeName);
-            
-            const buttons = document.querySelectorAll('.theme-btn');
-            buttons.forEach(btn => {
-                if (btn.getAttribute('data-theme') === themeName) {
-                    btn.classList.add('active');
-                } else {
-                    btn.classList.remove('active');
-                }
-            });
+        // ========== LANDING PAGE NAVIGATION ==========
+
+        function goToApp() {
+            const landingPage = document.getElementById('landing-page');
+            const appPage = document.getElementById('app-page');
+            landingPage.classList.add('hidden');
+            appPage.classList.remove('hidden');
         }
 
-        function toggleManageCards() {
+        function backToLanding() {
+            const landingPage = document.getElementById('landing-page');
+            const appPage = document.getElementById('app-page');
+            landingPage.classList.remove('hidden');
+            appPage.classList.add('hidden');
+        }
+
+        function openLoginModal() {
+            alert('Login functionality will be implemented');
+        }
+
+        function openSignupModal() {
+            alert('Signup functionality will be implemented');
+        }
+
+        // ========== NAVIGATION BETWEEN SECTIONS ==========
+
+        function showSection(sectionType) {
+            const heroSection = document.querySelector('.hero');
             const cardManagement = document.getElementById('card-management');
             const cardDetails = document.getElementById('card-details');
-            const heroSection = document.querySelector('.hero');
-            
-            if (cardManagement.classList.contains('hidden')) {
-                // Show card management, hide hero content
-                cardManagement.classList.remove('hidden');
-                cardDetails.classList.add('hidden');
-                heroSection.classList.add('hidden');
-            } else {
-                // Hide card management, show hero content
-                cardManagement.classList.add('hidden');
-                heroSection.classList.remove('hidden');
+            const billsSection = document.getElementById('bills-section');
+            const resourcesSection = document.getElementById('resources-section');
+
+            // Hide all sections
+            cardManagement.classList.add('hidden');
+            cardDetails.classList.add('hidden');
+            billsSection.classList.add('hidden');
+            resourcesSection.classList.add('hidden');
+            heroSection.classList.add('hidden');
+
+            // Show the requested section
+            switch(sectionType) {
+                case 'cards':
+                    cardManagement.classList.remove('hidden');
+                    break;
+                case 'bills':
+                    billsSection.classList.remove('hidden');
+                    break;
+                case 'resources':
+                    resourcesSection.classList.remove('hidden');
+                    break;
             }
+        }
+
+        function backToHero() {
+            const heroSection = document.querySelector('.hero');
+            const cardManagement = document.getElementById('card-management');
+            const cardDetails = document.getElementById('card-details');
+            const billsSection = document.getElementById('bills-section');
+            const resourcesSection = document.getElementById('resources-section');
+
+            cardManagement.classList.add('hidden');
+            cardDetails.classList.add('hidden');
+            billsSection.classList.add('hidden');
+            resourcesSection.classList.add('hidden');
+            heroSection.classList.remove('hidden');
         }
 
         function showCardDetails(cardId) {
             const cardManagement = document.getElementById('card-management');
             const cardDetails = document.getElementById('card-details');
             const title = document.getElementById('card-details-title');
-            
+
             cardManagement.classList.add('hidden');
             cardDetails.classList.remove('hidden');
             title.textContent = `${cardId === 'card1' ? 'Visa ****1234' : 'Mastercard ****5678'} - Recurring Transactions`;
@@ -765,17 +1073,18 @@
         function backToCards() {
             const cardManagement = document.getElementById('card-management');
             const cardDetails = document.getElementById('card-details');
-            
+
             cardDetails.classList.add('hidden');
             cardManagement.classList.remove('hidden');
         }
+
+        // ========== DROPDOWN MENUS ==========
 
         function toggleDropdown(event, dropdownId) {
             event.stopPropagation();
             const dropdown = document.getElementById(dropdownId);
             dropdown.classList.toggle('show');
-            
-            // Close other dropdowns
+
             document.querySelectorAll('.dropdown-menu').forEach(menu => {
                 if (menu.id !== dropdownId) {
                     menu.classList.remove('show');
@@ -783,14 +1092,20 @@
             });
         }
 
+        document.addEventListener('click', function() {
+            document.querySelectorAll('.dropdown-menu').forEach(menu => {
+                menu.classList.remove('show');
+            });
+        });
+
+        // ========== CATEGORY & SUBCATEGORY TABS ==========
+
         function showCategory(category) {
-            // Update active button
             document.querySelectorAll('.category-btn').forEach(btn => {
                 btn.classList.remove('active');
             });
             event.target.classList.add('active');
-            
-            // Show/hide content
+
             document.querySelectorAll('.category-content').forEach(content => {
                 content.classList.add('hidden');
             });
@@ -798,18 +1113,28 @@
         }
 
         function showSubcategory(subcategory) {
-            // Update active button
             document.querySelectorAll('.subcategory-btn').forEach(btn => {
                 btn.classList.remove('active');
             });
             event.target.classList.add('active');
-            
-            // Show/hide content
+
             document.querySelectorAll('.subcategory-content').forEach(content => {
                 content.classList.add('hidden');
             });
             document.getElementById(subcategory + '-content').classList.remove('hidden');
         }
+
+        // ========== EXPANDABLE ITEMS (TRIALS & SUBSCRIPTIONS) ==========
+
+        function toggleTrial(element) {
+            element.classList.toggle('trial-expanded');
+        }
+
+        function toggleSubscription(element) {
+            element.classList.toggle('subscription-expanded');
+        }
+
+        // ========== CARD ACTION STUBS ==========
 
         function replaceCard(cardId) {
             alert(`Replace ${cardId} functionality will be implemented`);
@@ -822,41 +1147,78 @@
         function pauseCard(cardId) {
             alert(`Pause ${cardId} functionality will be implemented`);
         }
-
-        function toggleTrial(element) {
-    element.classList.toggle('trial-expanded');
-}
-
-function toggleSubscription(element) {
-    element.classList.toggle('subscription-expanded');
-}
-
-        // Close dropdowns when clicking outside
-        document.addEventListener('click', function() {
-            document.querySelectorAll('.dropdown-menu').forEach(menu => {
-                menu.classList.remove('show');
-            });
-        });
-
-        document.addEventListener('DOMContentLoaded', () => {
-            setTheme('default');
-        });
     </script>
 </head>
 <body>
-    <!-- Theme Switcher 
-    <div class="theme-switcher">
-        <button class="theme-btn" onclick="setTheme('default')" data-theme="default">Default</button>
-        <button class="theme-btn" onclick="setTheme('cyberpunk')" data-theme="cyberpunk">Cyberpunk</button>
-        <button class="theme-btn" onclick="setTheme('luxury')" data-theme="luxury">Luxury</button>
-        <button class="theme-btn" onclick="setTheme('retro')" data-theme="retro">Retro</button>
-    </div> -->
-
     <div class="background">
-        <img src="https://images.unsplash.com/photo-1557804506-669a67965ba0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" alt="Background">
+        <img src="https://plus.unsplash.com/premium_photo-1701590725824-3d0482721544?q=80&w=2662&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Background">
     </div>
 
-    <nav class="navbar">
+    <!-- LANDING PAGE -->
+    <div id="landing-page" class="landing-page">
+        <nav class="landing-navbar">
+            <div class="landing-branding">
+                <h2 class="landing-brand-name">Solve<sup>d</sup></h2>
+                <p class="landing-brand-tagline">Click. Sort. Solve<sup>d</sup>.</p>
+            </div>
+            <div class="auth-buttons">
+                <button class="auth-btn login-btn" onclick="openLoginModal()">Login</button>
+                <button class="auth-btn signup-btn" onclick="openSignupModal()">Sign Up</button>
+            </div>
+        </nav>
+
+        <div class="landing-hero">
+            <div class="landing-hero-content">
+                <h1>Take Control of Your Financial Life</h1>
+                <p>Manage subscriptions, track spending, organize bills, and build credit with Solve<sup>d</sup> — your all-in-one personal finance companion.</p>
+                <div class="landing-cta-buttons">
+                    <button class="cta-primary" onclick="goToApp()">Get Started Free</button>
+                    <button class="cta-secondary" onclick="openLoginModal()">Sign In</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="features-grid">
+            <div class="feature">
+                <div class="feature-icon-circle">💳</div>
+                <h3>Card Management</h3>
+                <p>Track subscriptions and monitor spending across all your credit and debit cards in one place.</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon-circle">📋</div>
+                <h3>Bill Organization</h3>
+                <p>Never miss a payment. Organize and manage rent, utilities, insurance, and other recurring bills.</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon-circle">📚</div>
+                <h3>Financial Learning</h3>
+                <p>Access curated resources for credit building, financial literacy, and wealth growth strategies.</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon-circle">🔒</div>
+                <h3>Secure & Private</h3>
+                <p>Your financial data is encrypted and protected. We never share your information with third parties.</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon-circle">📊</div>
+                <h3>Smart Insights</h3>
+                <p>Get actionable insights about your spending patterns and personalized recommendations.</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon-circle">⚡</div>
+                <h3>Quick Updates</h3>
+                <p>Update card information across all subscriptions with a single click. Save time and reduce errors.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- APP PAGE -->
+    <div id="app-page" class="app-page hidden">
+        <div class="background-overlay">
+            <button class="back-to-landing" onclick="backToLanding()" style="position: absolute; top: 1.5rem; right: 1.5rem; background: rgba(34, 211, 238, 0.2); color: var(--accent-color); border: 1px solid var(--accent-color); padding: 0.5rem 1rem; border-radius: 0.5rem; cursor: pointer; font-family: var(--body-font); font-weight: 600; z-index: 1000;">← Back to Home</button>
+        </div>
+
+        <nav class="navbar">
         <div class="nav-content">
             <div class="logo-container">
                 <div class="logo-box">
@@ -867,25 +1229,57 @@ function toggleSubscription(element) {
     </nav>
 
     <main class="main-content">
+        <!-- HERO SECTION - Initial landing view with three action buttons -->
         <div class="hero">
             <h1>Life Made Easy</h1>
             <p>
                 A revolutionary fintech app designed to streamline personal finance management.
                 Track subscriptions, monitor spending on credit/debit cards, and update your card
-                across all subscriptions hassle-free. Solve-It empowers you to take control of
+                across all subscriptions hassle-free. Solve<sup>d</sup> empowers you to take control of
                 your financial life with convenience and precision.
             </p>
-            <button class="download-btn" onclick="toggleManageCards()">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <rect x="1" y="4" width="22" height="16" rx="2" ry="2"/>
-                    <line x1="1" y1="10" x2="23" y2="10"/>
-                </svg>
-                Manage Your Cards
-            </button>
+            <div class="hero-buttons-container">
+                <div class="button-with-description">
+                    <button class="download-btn" onclick="showSection('cards')">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="1" y="4" width="22" height="16" rx="2" ry="2"/>
+                            <line x1="1" y1="10" x2="23" y2="10"/>
+                        </svg>
+                        Manage Your Cards
+                    </button>
+                    <div class="button-description">Track subscriptions and monitor spending across your credit and debit cards</div>
+                </div>
+
+                <div class="button-with-description">
+                    <button class="download-btn" onclick="showSection('bills')">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="1" y="4" width="22" height="16" rx="2" ry="2"/>
+                            <line x1="1" y1="10" x2="23" y2="10"/>
+                        </svg>
+                        Bills
+                    </button>
+                    <div class="button-description">Organize and manage bank payments for utilities, rent, insurance, and other recurring bills</div>
+                </div>
+
+                <div class="button-with-description">
+                    <button class="download-btn" onclick="showSection('resources')">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"/>
+                            <path d="M12 6v6l4 2"/>
+                        </svg>
+                        Finance Tools & Resources
+                    </button>
+                    <div class="button-description">Learn about credit building, financial literacy, and access free tools to grow your wealth</div>
+                </div>
+            </div>
         </div>
+
+        <!-- CARD MANAGEMENT SECTION - Displayed after clicking one of the three hero buttons -->
+
 
         <!-- Card Management Section -->
         <div id="card-management" class="card-management hidden">
+            <button class="back-btn" onclick="backToHero()">← Back</button>
             <h2>Your Cards</h2>
             <div class="cards-list">
                 <div class="card-item" onclick="showCardDetails('card1')">
@@ -924,10 +1318,10 @@ function toggleSubscription(element) {
             </div>
         </div>
 
-        <!-- Card Details Section -->
+        <!-- CARD DETAILS SECTION - Displayed after clicking a card in card management -->
         <div id="card-details" class="card-details hidden">
+            <button class="back-btn" onclick="backToCards()">← Back</button>
             <div class="card-details-header">
-                <button class="back-btn" onclick="backToCards()">← Back to Cards</button>
                 <h2 id="card-details-title">Card Details</h2>
             </div>
             
@@ -942,127 +1336,255 @@ function toggleSubscription(element) {
                     <button class="subcategory-btn active" onclick="showSubcategory('trials')">Free Trials</button>
                     <button class="subcategory-btn" onclick="showSubcategory('active')">Active Subscriptions</button>
                 </div>
-                
+
+                <!-- Free Trials Tab -->
                 <div id="trials-content" class="subcategory-content">
-    <div class="transaction-item trial trial-expandable" onclick="toggleTrial(this)">
-        <div class="trial-header">
-            <div class="transaction-logo">
-                <img src="https://images.unsplash.com/photo-1611339555312-e607c8352fd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=32&h=32&q=80" alt="Spotify">
-            </div>
-            <div class="transaction-details">
-                <div class="transaction-name">Spotify Premium</div>
-                <div class="transaction-info">Free trial - Cancel by Dec 15, 2024</div>
-            </div>
-            <div class="trial-expand-icon">▼</div>
-        </div>
-        <div class="trial-details">
-            <div class="trial-progress">
-                <div class="trial-progress-label">Time until auto-renewal</div>
-                <div class="trial-progress-bar">
-                    <div class="trial-progress-fill trial-progress-urgent" style="width: 15%;"></div>
+                    <div class="transaction-item trial trial-expandable" onclick="toggleTrial(this)">
+                        <div class="trial-header">
+                            <div class="transaction-logo">
+                                <img src="https://images.unsplash.com/photo-1611339555312-e607c8352fd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=32&h=32&q=80" alt="Spotify">
+                            </div>
+                            <div class="transaction-details">
+                                <div class="transaction-name">Spotify Premium</div>
+                                <div class="transaction-info">Free trial - Cancel by Dec 15, 2024</div>
+                            </div>
+                            <div class="trial-expand-icon">▼</div>
+                        </div>
+                        <div class="trial-details">
+                            <div class="trial-progress">
+                                <div class="trial-progress-label">Time until auto-renewal</div>
+                                <div class="trial-progress-bar">
+                                    <div class="trial-progress-fill trial-progress-urgent" style="width: 15%;"></div>
+                                </div>
+                            </div>
+                            <div class="transaction-actions">
+                                <button class="action-btn">Set Reminder</button>
+                                <button class="action-btn">Cancel Now</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="transaction-item trial trial-expandable" onclick="toggleTrial(this)">
+                        <div class="trial-header">
+                            <div class="transaction-logo">
+                                <img src="https://images.unsplash.com/photo-1626814026160-2237a95fc5a0?ixlib=rb-4.0.3&auto=format&fit=crop&w=32&h=32&q=80" alt="Disney+">
+                            </div>
+                            <div class="transaction-details">
+                                <div class="transaction-name">Disney+</div>
+                                <div class="transaction-info">Free trial - Cancel by Dec 20, 2024</div>
+                            </div>
+                            <div class="trial-expand-icon">▼</div>
+                        </div>
+                        <div class="trial-details">
+                            <div class="trial-progress">
+                                <div class="trial-progress-label">Time until auto-renewal</div>
+                                <div class="trial-progress-bar">
+                                    <div class="trial-progress-fill trial-progress-warning" style="width: 45%;"></div>
+                                </div>
+                            </div>
+                            <div class="transaction-actions">
+                                <button class="action-btn">Set Reminder</button>
+                                <button class="action-btn">Cancel Now</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div class="transaction-actions">
-                <button class="action-btn">Set Reminder</button>
-                <button class="action-btn">Cancel Now</button>
-            </div>
-        </div>
-    </div>
-    
-    <div class="transaction-item trial trial-expandable" onclick="toggleTrial(this)">
-        <div class="trial-header">
-            <div class="transaction-logo">
-                <img src="https://images.unsplash.com/photo-1626814026160-2237a95fc5a0?ixlib=rb-4.0.3&auto=format&fit=crop&w=32&h=32&q=80" alt="Disney+">
-            </div>
-            <div class="transaction-details">
-                <div class="transaction-name">Disney+</div>
-                <div class="transaction-info">Free trial - Cancel by Dec 20, 2024</div>
-            </div>
-            <div class="trial-expand-icon">▼</div>
-        </div>
-        <div class="trial-details">
-            <div class="trial-progress">
-                <div class="trial-progress-label">Time until auto-renewal</div>
-                <div class="trial-progress-bar">
-                    <div class="trial-progress-fill trial-progress-warning" style="width: 45%;"></div>
-                </div>
-            </div>
-            <div class="transaction-actions">
-                <button class="action-btn">Set Reminder</button>
-                <button class="action-btn">Cancel Now</button>
-            </div>
-        </div>
-    </div>
-</div>
-                
+
+                <!-- Active Subscriptions Tab -->
                 <div id="active-content" class="subcategory-content hidden">
-    <div class="total-spending">
-        <div class="total-spending-label">Total spent on active subscriptions</div>
-        <div class="total-spending-amount">$347.76</div>
-    </div>
-    
-    <div class="transaction-item subscription-expandable" onclick="toggleSubscription(this)">
-        <div class="subscription-header">
-            <div class="transaction-logo">
-                <img src="https://images.unsplash.com/photo-1574375927938-d5a98e8ffe85?ixlib=rb-4.0.3&auto=format&fit=crop&w=32&h=32&q=80" alt="Netflix">
-            </div>
-            <div class="transaction-details">
-                <div class="transaction-name">Netflix</div>
-                <div class="transaction-info">Next billing: Jan 15, 2025 - $15.99/month</div>
-            </div>
-            <div class="subscription-expand-icon">▼</div>
-        </div>
-        <div class="subscription-details">
-            <div class="subscription-spending">
-                <div class="subscription-spending-label">Total spent on this subscription</div>
-                <div class="spending-amount">$191.88</div>
-                <div class="spending-visual">
-                    <div class="spending-bar">
-                        <div class="spending-fill" style="width: 65%;"></div>
+                    <div class="total-spending">
+                        <div class="total-spending-label">Total spent on active subscriptions</div>
+                        <div class="total-spending-amount">$347.76</div>
                     </div>
-                    <span style="font-size: 0.8rem; color: var(--text-secondary);">12 months</span>
+
+                    <div class="transaction-item subscription-expandable" onclick="toggleSubscription(this)">
+                        <div class="subscription-header">
+                            <div class="transaction-logo">
+                                <img src="https://images.unsplash.com/photo-1574375927938-d5a98e8ffe85?ixlib=rb-4.0.3&auto=format&fit=crop&w=32&h=32&q=80" alt="Netflix">
+                            </div>
+                            <div class="transaction-details">
+                                <div class="transaction-name">Netflix</div>
+                                <div class="transaction-info">Next billing: Jan 15, 2025 - $15.99/month</div>
+                            </div>
+                            <div class="subscription-expand-icon">▼</div>
+                        </div>
+                        <div class="subscription-details">
+                            <div class="subscription-spending">
+                                <div class="subscription-spending-label">Total spent on this subscription</div>
+                                <div class="spending-amount">$191.88</div>
+                                <div class="spending-visual">
+                                    <div class="spending-bar">
+                                        <div class="spending-fill" style="width: 65%;"></div>
+                                    </div>
+                                    <span style="font-size: 0.8rem; color: var(--text-secondary);">12 months</span>
+                                </div>
+                            </div>
+                            <div class="transaction-actions">
+                                <button class="action-btn">Manage</button>
+                                <button class="action-btn">Cancel</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="transaction-item subscription-expandable" onclick="toggleSubscription(this)">
+                        <div class="subscription-header">
+                            <div class="transaction-logo">
+                                <img src="https://images.unsplash.com/photo-1618044733300-9472054094ee?ixlib=rb-4.0.3&auto=format&fit=crop&w=32&h=32&q=80" alt="Adobe">
+                            </div>
+                            <div class="transaction-details">
+                                <div class="transaction-name">Adobe Creative Cloud</div>
+                                <div class="transaction-info">Next billing: Jan 8, 2025 - $52.99/month</div>
+                            </div>
+                            <div class="subscription-expand-icon">▼</div>
+                        </div>
+                        <div class="subscription-details">
+                            <div class="subscription-spending">
+                                <div class="subscription-spending-label">Total spent on this subscription</div>
+                                <div class="spending-amount">$155.88</div>
+                                <div class="spending-visual">
+                                    <div class="spending-bar">
+                                        <div class="spending-fill" style="width: 35%;"></div>
+                                    </div>
+                                    <span style="font-size: 0.8rem; color: var(--text-secondary);">3 months</span>
+                                </div>
+                            </div>
+                            <div class="transaction-actions">
+                                <button class="action-btn">Manage</button>
+                                <button class="action-btn">Cancel</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="transaction-actions">
-                <button class="action-btn">Manage</button>
-                <button class="action-btn">Cancel</button>
-            </div>
         </div>
-    </div>
-    
-    <div class="transaction-item subscription-expandable" onclick="toggleSubscription(this)">
-        <div class="subscription-header">
-            <div class="transaction-logo">
-                <img src="https://images.unsplash.com/photo-1618044733300-9472054094ee?ixlib=rb-4.0.3&auto=format&fit=crop&w=32&h=32&q=80" alt="Adobe">
-            </div>
-            <div class="transaction-details">
-                <div class="transaction-name">Adobe Creative Cloud</div>
-                <div class="transaction-info">Next billing: Jan 8, 2025 - $52.99/month</div>
-            </div>
-            <div class="subscription-expand-icon">▼</div>
-        </div>
-        <div class="subscription-details">
-            <div class="subscription-spending">
-                <div class="subscription-spending-label">Total spent on this subscription</div>
-                <div class="spending-amount">$155.88</div>
-                <div class="spending-visual">
-                    <div class="spending-bar">
-                        <div class="spending-fill" style="width: 35%;"></div>
+
+        <!-- BILLS SECTION - Non-card based bill management -->
+        <div id="bills-section" class="bills-section hidden">
+            <button class="back-btn" onclick="backToHero()">← Back</button>
+            <h2>Manage Bills</h2>
+            <div class="bills-list">
+                <div class="bill-item">
+                    <div class="bill-header">
+                        <div class="bill-info">
+                            <div class="bill-name">Home Insurance</div>
+                            <div class="bill-description">Annual home and property insurance premium</div>
+                        </div>
+                        <div style="text-align: right;">
+                            <div class="bill-amount">$1,200</div>
+                            <div class="bill-frequency">Annual</div>
+                        </div>
                     </div>
-                    <span style="font-size: 0.8rem; color: var(--text-secondary);">3 months</span>
+                </div>
+
+                <div class="bill-item">
+                    <div class="bill-header">
+                        <div class="bill-info">
+                            <div class="bill-name">Rent Payment</div>
+                            <div class="bill-description">Monthly residential rent via bank transfer</div>
+                        </div>
+                        <div style="text-align: right;">
+                            <div class="bill-amount">$1,500</div>
+                            <div class="bill-frequency">Monthly</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bill-item">
+                    <div class="bill-header">
+                        <div class="bill-info">
+                            <div class="bill-name">Auto Insurance</div>
+                            <div class="bill-description">Car insurance premium and coverage</div>
+                        </div>
+                        <div style="text-align: right;">
+                            <div class="bill-amount">$145</div>
+                            <div class="bill-frequency">Monthly</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bill-item">
+                    <div class="bill-header">
+                        <div class="bill-info">
+                            <div class="bill-name">Electric & Gas Utility</div>
+                            <div class="bill-description">Combined electric and natural gas services</div>
+                        </div>
+                        <div style="text-align: right;">
+                            <div class="bill-amount">$180</div>
+                            <div class="bill-frequency">Monthly</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bill-item">
+                    <div class="bill-header">
+                        <div class="bill-info">
+                            <div class="bill-name">Water & Sewer</div>
+                            <div class="bill-description">Municipal water and wastewater services</div>
+                        </div>
+                        <div style="text-align: right;">
+                            <div class="bill-amount">$65</div>
+                            <div class="bill-frequency">Monthly</div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="transaction-actions">
-                <button class="action-btn">Manage</button>
-                <button class="action-btn">Cancel</button>
-            </div>
         </div>
-    </div>
-</div>
+
+        <!-- RESOURCES SECTION - Financial literacy and credit building tools -->
+        <div id="resources-section" class="resources-section hidden">
+            <button class="back-btn" onclick="backToHero()">← Back</button>
+            <h2>Finance Tools & Resources</h2>
+            <div class="resources-grid">
+                <div class="resource-item">
+                    <div class="resource-info">
+                        <div class="resource-name">GreenPath Financial Wellness</div>
+                        <div class="resource-description">Nonprofit credit counseling and financial education services. Get personalized guidance on debt management, budgeting, and credit improvement.</div>
+                        <a href="#" class="resource-link">Visit GreenPath →</a>
+                    </div>
+                </div>
+
+                <div class="resource-item">
+                    <div class="resource-info">
+                        <div class="resource-name">Credit Karma</div>
+                        <div class="resource-description">Free credit score monitoring and reports. Track your credit progress, get personalized recommendations, and learn credit-building strategies.</div>
+                        <a href="#" class="resource-link">Visit Credit Karma →</a>
+                    </div>
+                </div>
+
+                <div class="resource-item">
+                    <div class="resource-info">
+                        <div class="resource-name">NerdWallet</div>
+                        <div class="resource-description">Educational content on credit scores, credit cards, and personal finance. Compare tools and get expert advice on improving your financial health.</div>
+                        <a href="#" class="resource-link">Visit NerdWallet →</a>
+                    </div>
+                </div>
+
+                <div class="resource-item">
+                    <div class="resource-info">
+                        <div class="resource-name">Khan Academy - Finance</div>
+                        <div class="resource-description">Free online courses covering financial literacy, investing basics, taxes, and personal finance fundamentals.</div>
+                        <a href="#" class="resource-link">Visit Khan Academy →</a>
+                    </div>
+                </div>
+
+                <div class="resource-item">
+                    <div class="resource-info">
+                        <div class="resource-name">AnnualCreditReport.com</div>
+                        <div class="resource-description">Official government resource to get your free annual credit reports from all three major bureaus. Monitor your credit file for errors.</div>
+                        <a href="#" class="resource-link">Get Your Report →</a>
+                    </div>
+                </div>
+
+                <div class="resource-item">
+                    <div class="resource-info">
+                        <div class="resource-name">The Motley Fool</div>
+                        <div class="resource-description">Expert investment education and financial guidance. Learn about stocks, investing strategies, and long-term wealth building.</div>
+                        <a href="#" class="resource-link">Visit Motley Fool →</a>
+                    </div>
+                </div>
             </div>
         </div>
     </main>
+    </div>
 </body>
-
-
-                    
+</html>
